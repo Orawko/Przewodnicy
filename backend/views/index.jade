@@ -1,12 +1,8 @@
-extends layout
-
 block content
   h1= title
   p Welcome to #{title}
   if user && user.name
     p #{user.name}
     a(href="/auth/logout") Logout
-  else
-    a(href="/auth/facebook") Login with Facebook
-    br
-    a(href="/auth/google") Login with Google
+   else
+    p Login first!
