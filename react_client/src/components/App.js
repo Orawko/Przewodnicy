@@ -8,7 +8,9 @@ import Profile from "./Profile";
 import Settings from "./Settings";
 import Register from "./Register";
 import Login from "./Login";
+import Guide from "./Guide";
 import SiteNotFound from "./SiteNotFound";
+import Nav from "./Nav";
 
 export default class App extends Component {
   constructor(props) {
@@ -25,12 +27,18 @@ export default class App extends Component {
         <BrowserRouter>
           <div className="App">
             {this.state.user ?
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/profile" component={Profile}/>
-                <Route path="/settings" component={Settings}/>
-                <Route path="*" component={SiteNotFound}/>
-              </Switch> :
+              <div>
+                <Nav/>
+                <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/profile" component={Profile}/>
+                  <Route path="/settings" component={Settings}/>
+                  <Route path="/register" component={Register}/>
+                  <Route path="/login" component={Login}/>
+                  <Route path="/guide/:id" component={Guide}/>
+                  <Route path="*" component={SiteNotFound}/>
+                </Switch>
+              </div> :
               <Switch>
                 <Route path="/register" component={Register}/>
                 <Route path="/*" component={Login}/>

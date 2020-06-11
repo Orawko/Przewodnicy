@@ -1,0 +1,35 @@
+.profileContainer {
+    width: 60vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: whitesmoke;
+    margin: 5vh auto;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.imageContainer {
+    width: 20vw;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.imageContainer img {
+    flex-shrink: 0;
+    max-height: 20vw;
+}
+
+.dates {
+    flex-direction: column;
+}
+
+
+
