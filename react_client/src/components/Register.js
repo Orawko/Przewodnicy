@@ -105,7 +105,7 @@ export default class Register extends Component {
             name="register as guide"
             type="checkbox"
             checked={this.state.isGuide}
-            onChange={(input) =>
+            onChange={() =>
               this.setState({isGuide: !this.state.isGuide})}/>
           </div>
           <button

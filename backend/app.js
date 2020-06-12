@@ -14,9 +14,6 @@ const guidesRouter = require('./routes/guides');
 const adminRouter = require('./routes/admin');
 const importRouter = require('./routes/import');
 
-
-
-
 const app = express();
 
 // view engine setup
@@ -32,6 +29,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'anything' }));
 app.use(passport.initialize());
 app.use(passport.session({ secret: 'secret', saveUninitialized: false, resave: false, cookie: { maxAge: 100000 } }));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

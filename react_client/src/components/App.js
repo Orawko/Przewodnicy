@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import UserProvider from "../providers/UserProvider";
-import {getUser} from "../helpers/user"
+import {retrieveData} from "../helpers/token";
 import '../styles/App.css';
 import Home from "./Home";
 import Profile from "./Profile";
@@ -17,36 +16,34 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      user: getUser()
+      user: retrieveData()
     }
   }
 
   render() {
     return (
-      <UserProvider>
-        <BrowserRouter>
-          <div className="App">
-            {this.state.user ?
-              <div>
-                <Nav/>
-                <Switch>
-                  <Route exact path="/" component={Home}/>
-                  <Route path="/profile" component={Profile}/>
-                  <Route path="/settings" component={Settings}/>
-                  <Route path="/register" component={Register}/>
-                  <Route path="/login" component={Login}/>
-                  <Route path="/guide/:id" component={Guide}/>
-                  <Route path="*" component={SiteNotFound}/>
-                </Switch>
-              </div> :
+      <BrowserRouter>
+        <div className="App">
+          {this.state.user ?
+            <div>
+              <Nav/>
               <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/profile" component={Profile}/>
+                <Route path="/settings" component={Settings}/>
                 <Route path="/register" component={Register}/>
-                <Route path="/*" component={Login}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/guide/:id" component={Guide}/>
                 <Route path="*" component={SiteNotFound}/>
-              </Switch>}
-          </div>
-        </BrowserRouter>
-      </UserProvider>
+              </Switch>
+            </div> :
+            <Switch>
+              <Route path="/register" component={Register}/>
+              <Route path="/*" component={Login}/>
+              <Route path="*" component={SiteNotFound}/>
+            </Switch>}
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import {Link, Redirect} from "react-router-dom";
+import {authenticate} from "../services/auth";
+import {refreshPage} from "../helpers/reload";
 
 export default class Login extends Component {
   constructor(props) {
@@ -9,6 +11,15 @@ export default class Login extends Component {
       email: "",
       password: "",
       success: false
+    }
+  }
+
+  async loginUser() {
+    const {email, password} = this.state;
+    const result = await authenticate(email, password);
+    if (result) {
+      this.setState({success: true});
+      refreshPage();
     }
   }
 
@@ -38,7 +49,7 @@ export default class Login extends Component {
             }
             type="password"
           />
-          <button className="loginButton" onClick={this.login}>
+          <button className="loginButton" onClick={() => this.loginUser()}>
             Sign in
           </button>
           <Link to="/register" className="link">Sign up</Link>

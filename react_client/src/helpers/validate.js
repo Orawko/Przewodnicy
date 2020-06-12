@@ -31,7 +31,7 @@ function validatePassword(password, passwordRepeat) {
 }
 
 function validatePhone(phone) {
-  if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(phone)) return true;
+  if (/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(phone)) return true;
   else {
     alert("Phone number is incorrect!")
     return false;
@@ -39,11 +39,18 @@ function validatePhone(phone) {
 }
 
 function validateAge(age) {
-  if (age && age >= 0 && age <= 140) return true
+  if (age && age >= 0 && age <= 140) return true;
   else {
     alert("Given age is incorrect!");
     return false;
   }
 }
 
-module.exports = {validateEmail, validateName, validatePassword, validatePhone, validateSurname, validateAge};
+module.exports = {
+  validateAge,
+  validateEmail,
+  validateName,
+  validatePassword,
+  validatePhone,
+  validateSurname
+};
