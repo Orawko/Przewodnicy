@@ -9,6 +9,7 @@ import {
   validatePhone,
   validateSurname
 } from "../helpers/validate";
+import {checkGuideRegister, checkUserRegister} from "../services/auth";
 
 export default class Register extends Component {
   constructor(props) {
@@ -40,7 +41,13 @@ export default class Register extends Component {
   }
 
   register() {
-    this.validateData() ? console.log("ok!") : console.log("invalid data!");
+    const {name, surname, age, email, phone, password} = this.state;
+    if (this.state.isGuide && this.validateData()) {
+      checkGuideRegister(name, surname, age, email, phone, password).then(c => console.log(c));
+    } else if (this.validateData()) {
+      this.validateData()
+      checkUserRegister(name, surname, age, email, phone, password).then(c => console.log(c));
+    }
   }
 
   render() {

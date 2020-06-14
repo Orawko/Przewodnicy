@@ -101,7 +101,7 @@ export default class Settings extends Component {
             <h3>New description</h3>
             <input
               className="loginInput"
-              placeholder="new phone"
+              placeholder="new description"
               onChange={(input) =>
                 this.setState({description: input.target.value})
               }
@@ -116,7 +116,7 @@ export default class Settings extends Component {
             <h3>Add city</h3>
             <input
               className="loginInput"
-              placeholder="new phone"
+              placeholder="city name"
               onChange={(input) =>
                 this.setState({city: input.target.value})
               }/>
@@ -130,7 +130,7 @@ export default class Settings extends Component {
             <h3>Remove city</h3>
             <input
               className="loginInput"
-              placeholder="new phone"
+              placeholder="city name"
               onChange={(input) =>
                 this.setState({city: input.target.value})
               }/>

@@ -1,5 +1,7 @@
 import {storeData} from "../helpers/token";
 
+const serverIp = "http://localhost:3001";
+
 export async function authenticate(email, password) {
   console.log("logowanie...")
   let details = {
@@ -41,4 +43,58 @@ export async function authenticate(email, password) {
       return false;
     });
   return res;
+}
+
+export async function checkGuideRegister(name, surname, age, email, phone, pass) {
+  fetch(
+    serverIp +
+    `/auth/newGuide/${name}/${surname}/${age}/${email}/${phone}/${pass}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        type: `guide`
+      })
+    }
+  )
+    .then(res => {
+      if (res.status >= 200 && res.status < 300) {
+        alert("Guide registered!!");
+      } else {
+        alert("Email is used")
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+
+export async function checkUserRegister(name, surname, age, email, phone, pass) {
+  fetch(
+    serverIp +
+    `/auth/newUser/${name}/${surname}/${age}/${email}/${phone}/${pass}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        type: `user`
+      })
+    }
+  ).then(res => {
+    if (res.status >= 200 && res.status < 300) {
+      alert("User registered!");
+    } else {
+      alert("Email is used")
+    }
+  })
+    .catch(err => {
+      console.log(err);
+    });
 }

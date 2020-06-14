@@ -70,10 +70,11 @@ export default class Profile extends Component {
           <div>
             <div className="profileContainer">
               <div className="imageContainer">
-                <img src={require('../images/profile.jpg')} alt="profile"/>
+                <img src={require('../images/profile.png')} alt="profile"/>
               </div>
               <div className="userData">
                 <h1>{Name} {Surname}</h1>
+                {this.state.user.isGuide ? <h2>Tourist guide</h2> : <h2>Standard user</h2>}
                 <h3>Email: {Email}</h3>
                 <h3>Age: {Age}</h3>
                 <h3>Phone: {PhoneNumber}</h3>
