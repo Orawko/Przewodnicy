@@ -1,0 +1,120 @@
+.home {
+    width: 100vw;
+    height: auto;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #f6f4e8;
+}
+
+.homeBackground {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+}
+
+.homeBackground img {
+    flex-shrink: 0;
+    max-height: 100vw;
+    min-width: 100vh;
+}
+
+.searchContainer {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
+    text-align: center;
+    color: #729B79;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.guidesList {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 250px;
+    text-align: center;
+    width: 60vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: whitesmoke;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.Login {
+    min-height: 100vh;
+}
+
+.Profile {
+    min-height: 100vh;
+}
+
+.Register {
+    min-height: 100vh;
+}
+
+.Guide {
+    min-height: 100vh;
+}
+
+
+.guidesElem {
+    background-color: #729B79;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    color: white;
+}
+
+.imageContainerSmall {
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.imageContainerSmall img {
+    flex-shrink: 0;
+    max-height: 5vw;
+}
+
+.guideProfile {
+    color: #729B79;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 10px;
+    line-height: 5vw;
+    text-align: center;
+    padding: 3px;
+}
+
+.guideProfile:hover {
+    transition: background-color 0.3s ease;
+    background-color: #DDE392;
+}
